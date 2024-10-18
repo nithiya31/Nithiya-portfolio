@@ -1,431 +1,299 @@
 <!DOCTYPE HTML>
-<!--
-	Miniport by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
-	<head>
-		<title>SAI NITHIYA'S PORTFOLIO</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<style>
-		/* Outer wrapper without gradient */
-.wrapper.style1  .wrapper.style2 .wrapper.style3 .wrapper.style4 {
-    padding: 3em 0;
-    background-color: transparent; /* Remove gradient from outer wrapper */
-    display: flex;
-    justify-content: center; /* Center the inner box horizontally */
-}
+<head>
+    <title>SAI NITHIYA'S PORTFOLIO</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f4f9ff;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrollbars */
+        }
 
-/* Inner container with gradient */
-.container {
-    background: linear-gradient(135deg, rgba(255, 99, 71, 0.8), rgba(0, 128, 128, 0.8));
-    padding: 3em;
-    border-radius: 10px;
-    color: white;
+        /* Outer wrapper without gradient */
+        .wrapper.style1 {
+            padding: 3em 0;
+            background-color: transparent; /* Remove gradient from outer wrapper */
+            display: flex;
+            justify-content: center; /* Center the inner box horizontally */
+        }
 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a slight shadow for depth */
-}
+        /* Inner container with gradient */
+        .container {
+            background: linear-gradient(135deg, rgba(255, 99, 71, 0.8), rgba(0, 128, 128, 0.8));
+            padding: 3em;
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a slight shadow for depth */
+        }
 
-/* Text styling */
-.container h1, .container h2, .container p {
-    color: white;
-}
+        /* Text styling */
+        .container h1, .container h2, .container p {
+            color: white;
+        }
 
-.container a {
-    color: #ffcccb; /* Light coral color for links */
-    text-decoration: underline;
-}
+        .container a {
+            color: #ffcccb; /* Light coral color for links */
+            text-decoration: underline;
+        }
 
-.container a:hover {
-    color: #add8e6; /* Light blue on hover */
-}
+        .container a:hover {
+            color: #add8e6; /* Light blue on hover */
+        }
 
+        /* Card styles */
+        .box {
+            perspective: 1000px; /* Allow for 3D transformations */
+            margin: 20px;
+        }
 
+        .box-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d; /* Allow children to be transformed in 3D */
+        }
 
+        .box:hover .box-inner {
+            transform: rotateY(180deg); /* Rotate on hover */
+        }
 
+        .box-front, .box-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden; /* Hide back face when rotated */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a slight shadow for depth */
+        }
 
+        .box-front {
+            background-color: #fff;
+        }
 
+        .box-back {
+            background-color: #007BFF;
+            color: white;
+            transform: rotateY(180deg); /* Initially hide back face */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
 
-	</style>
-	<body class="is-preload">
-		<div class="gradient-container">
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+        }
 
-		<!-- Nav -->
-			<nav id="nav">
-				<ul class="container1">
-					<li ><a href="#top">About</a></li>
-					<li><a href="#work">Work</a></li>
-					<li><a href="#portfolio">Portfolio</a></li>
-					<li><a href="#contact">Contact</a></li>
-				</ul>
-			</nav>
-			
+        .modal-content {
+            background-color: #ffffff;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
 
-	    <!-- Home -->
-		<article  id="top" class="wrapper style1">
-			<div class="container" >
-					<div class="col-8 col-7-large col-12-medium">
-						<header>
-							<h1  style="color: white; font-family: 'Montserrat', sans-serif;">Hi. I'm Sai Nithiya  Shree K </h1>
-						</header>
-						<p style="text-align: center; font-family: 'Montserrat', sans-serif;">A highly motivated Computer Science graduate eager to launch my career in Data Analytics, Cloud Computing or DevOps.</p>
-					</div>
-				</div>
-			</div>
-		</article>
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
 
-		<!-- Work -->
-			<!-- Main Article Section -->
-        <article  id="work" class="wrapper style2">
-   	 		<div class="container">
-       		 <header>
-            	<h2>EXPERIENCE</h2>
-            
-        	 </header>
-        	<div class="row aln-center">
-            <div class="col-4 col-6-medium col-12-small">
-                <section class="box style1">
-					
-                    <h3>Systech Solutions Internship</h3>
-                    
-                    <button onclick="openModal('pantechModal')" class="click-me-button">Click Me</button>
-                </section>
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Form styling */
+        .contact-form {
+            width: 100%;
+        }
+
+        .contact-form label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f4f9ff;
+        }
+
+        .contact-form input[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .contact-form input[type="submit"]:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body class="is-preload">
+    <div class="gradient-container">
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="container1">
+                <li><a href="#top">About</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Home -->
+        <article id="top" class="wrapper style1">
+            <div class="container">
+                <div class="col-8 col-7-large col-12-medium">
+                    <header>
+                        <h1 style="color: white;">Hi. I'm Sai Nithiya Shree K</h1>
+                    </header>
+                    <p style="text-align: center;">A highly motivated Computer Science graduate eager to launch my career in Data Analytics, Cloud Computing, or DevOps.</p>
+                </div>
             </div>
-			<div class="col-4 col-6-medium col-12-small">
-				<section class="box style1">
-					<div class="background-image" style="background-image: url('images/data.jpg');"></div>
-					<h3>Pantech eLearning Internship</h3>
-					
-					<button onclick="openModal('systechModal')" class="click-me-button">Click Me</button>
-				</section>
-			</div>
-			
-			
+        </article>
+
+        <!-- Work -->
+        <article id="work" class="wrapper style2">
+            <div class="container">
+                <header>
+                    <h2>EXPERIENCE</h2>
+                </header>
+                <div class="row aln-center">
+                    <div class="col-4 col-6-medium col-12-small">
+                        <section class="box">
+                            <div class="box-inner">
+                                <div class="box-front">
+                                    <h3>Systech Solutions Internship</h3>
+                                    <button onclick="openModal('pantechModal')" class="click-me-button">Click Me</button>
+                                </div>
+                                <div class="box-back">
+                                    <h3>Systech Solutions Internship</h3>
+                                    <p>Role: Data Engineering Intern<br>Duration: Apr 2024 – June 2024</p>
+                                    <p>Accomplished efficient data manipulation and robust database management using SQL, PL/SQL, and Python.</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-4 col-6-medium col-12-small">
+                        <section class="box">
+                            <div class="box-inner">
+                                <div class="box-front">
+                                    <h3>Pantech eLearning Internship</h3>
+                                    <button onclick="openModal('systechModal')" class="click-me-button">Click Me</button>
+                                </div>
+                                <div class="box-back">
+                                    <h3>Pantech eLearning Internship</h3>
+                                    <p>Role: Web Developer Intern<br>Duration: August 2023</p>
+                                    <p>Improved HTML, CSS, and JavaScript abilities working on web development projects.</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Modals -->
+        <div id="pantechModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('pantechModal')">&times;</span>
+                <h2>Systech Solutions Internship</h2>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <p style="margin-right: 20px;"><strong>Role: Data Engineering Intern</strong></p>
+                    <p><strong>Duration: Apr 2024 – June 2024</strong></p>
+                </div>
+                <ul>
+                    <li>Accomplished efficient data manipulation and robust database management by mastering SQL, PL/SQL, and Python with libraries such as NumPy and Pandas.</li>
+                    <li>Enhanced data-driven insights and optimized the ETL process by integrating external data sources, working with various data formats (XML, JSON), and leveraging public APIs.</li>
+                </ul>
+            </div>
         </div>
-    </div>
-</article>
 
-<!-- Modal for sys tech Internship -->
-<div id="pantechModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('pantechModal')">&times;</span>
-        <h2>Systech Solutions Internship</h2>
-        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-            <p style="margin-right: 20px; "><strong>Role: Data Engineering Intern </strong></p>
-            <p><strong>Duration:Apr 2024 – June 2024</strong> </p>
+        <div id="systechModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('systechModal')">&times;</span>
+                <h2>Pantech eLearning Internship</h2>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <p style="margin-right: 20px;"><strong>Role: Web Developer Intern</strong></p>
+                    <p><strong>Duration: August 2023</strong></p>
+                </div>
+                <ul>
+                    <li>Improved HTML, CSS, and JavaScript abilities working on web development projects.</li>
+                    <li>Collaborated with cross-functional teams to design and implement responsive web applications.</li>
+                </ul>
+            </div>
         </div>
-        <ul>
-            <li style="color: #000;">Accomplished efficient data manipulation and robust database management by mastering SQL, PL/SQL, and Python with libraries such as NumPy and Pandas.</li>
-            <li style="color: #000;">Enhanced data-driven insights and optimized the ETL process by integrating external data sources, working with various data formats (XML, JSON), and leveraging public APIs.</li>
-        </ul>
+
+        <!-- Contact -->
+        <article id="contact" class="wrapper style3">
+            <div class="container">
+                <header>
+                    <h2>Contact Me</h2>
+                </header>
+                <form class="contact-form">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+
+                    <input type="submit" value="Send">
+                </form>
+            </div>
+        </article>
     </div>
-</div>
 
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
 
-<!-- Modal for pant elerning Internship -->
-<div id="systechModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('systechModal')">&times;</span>
-        <h2>Pantech eLearning Internship</h2>
-        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-            <p style="margin-right: 20px;"><strong>Role:Web Developer Intern</strong> </p>
-            <p><strong>Duration: AUGUST 2023</strong> </p>
-        </div>
-        <ul>
-            <li style="color: #000;">I improved my HTML, CSS, and JavaScript abilities working on multiple web development projects during my internship at Pantech eLearning.</li>
-            <li style="color: #000;">Worked together to create and develop user-friendly interfaces as a team.</li>
-            <li style="color: #000;">Obtained hands-on experience with version control systems and web development.</li>
-        </ul>
-    </div>
-</div>
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
 
-
-
-<!-- CSS for Modal and Styling -->
-<style>
-
-    .box:hover {
-        transform: translateY(-5px);
-    }
-
-    .click-me-button {
-        background-color: #007BFF; /* Bootstrap Primary Color */
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin-top: 10px;
-        cursor: pointer;
-        border-radius: 5px;
-        transition: background-color 0.3s, transform 0.2s;
-    }
-
-    .click-me-button:hover {
-        background-color: #0056b3; /* Darker Blue */
-        transform: scale(1.05);
-    }
-
-    /* Modal Styles */
-    .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Sit on top */
-        left: 0;
-        top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        overflow: auto; /* Enable scroll if needed */
-        background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
-    }
-
-    .modal-content {
-        background-color: #ffffff;
-        margin: 15% auto; /* 15% from the top and centered */
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        width: 80%; /* Could be more or less, depending on screen size */
-    }
-
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    ul {
-        list-style-type: disc;
-        padding-left: 20px;
-    }
-</style>
-
-<!-- JavaScript for Modal Functionality -->
-<script>
-    function openModal(modalId) {
-        document.getElementById(modalId).style.display = "block";
-    }
-
-    function closeModal(modalId) {
-        document.getElementById(modalId).style.display = "none";
-    }
-
-    // Close the modal when clicking outside of it
-    window.onclick = function(event) {
-        const modal = document.getElementsByClassName("modal");
-        for (let i = 0; i < modal.length; i++) {
-            if (event.target === modal[i]) {
-                modal[i].style.display = "none";
+        // Close the modal when clicking outside of it
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
             }
         }
-    }
-</script>
-
-
-
-		<!-- Portfolio -->
-	<!-- Portfolio -->
-	<article id="portfolio" class="wrapper style3">
-		<div class="container">
-			<header>
-				<h2>Recent Projects</h2>
-				<p>Explore some of my latest work and contributions in cloud and data analytics.</p>
-			</header>
-			<div class="row">
-				<div class="col-4 col-6-medium col-12-small">
-					<article  class="box style2">
-						<a href="https://github.com/yourusername/ai-chatbot-skin-disease-prediction" class="image featured">
-							<img src="images/skinimage.png" alt="AI-Based Chatbot for Skin Disease Prediction" style="width: 100%; height: 150px;" />
-						</a>
-						<h3><a href="https://github.com/yourusername/ai-chatbot-skin-disease-prediction">AI-Based Chatbot for Skin Disease Prediction</a></h3>
-						<p style="color: #000 ;   font-family: 'Montserrat', sans-serif;">A machine learning-powered chatbot designed to predict skin diseases based on user input and analysis.</p>
-					</article>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
-					<article class="box style2">
-						<a href="https://github.com/nithiya31/voice-assistant" class="image featured">
-							<img src="images/voice.webp" alt="Voice Assistant Using Python" style="width: 100%; height: 180px; background-color:powderblue;" />
-						</a>
-						<h3>
-							<a href="https://github.com/nithiya31/voice-assistant">Voice Assistant Using Python</a>
-						</h3>
-						<p style="color: #000; font-family: 'Montserrat', sans-serif;">
-							A versatile voice assistant built with Python, capable of executing various tasks through natural language commands.
-						</p>
-						<!-- Add link to the project here -->
-						
-					</article>
-				</div>
-				
-				
-				<div class="col-4 col-6-medium col-12-small">
-					<article class="box style2">
-						<a href="https://github.com/yourusername/cloud-native-monitoring-k8s" class="image featured">
-							<img src="images/do.png" alt="Cloud-Native Monitoring App on Kubernetes" style="width: 100%; height: 180px; background-color:lightgray;" />
-						</a>
-						<h3><a href="https://github.com/nithiya31/Cloud-native-monitoring-app">Cloud-Native Monitoring App </a></h3>
-						<p style="color: #000 ;   font-family: 'Montserrat', sans-serif;">An application designed to monitor the health and performance of cloud-native environments using Kubernetes.</p>
-					</article>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
-					<article class="box style2">
-						<a href="https://github.com/nithiya31/GAME" class="image featured">
-							<img src="images/python.jpg" alt="Tic Tac Toe Game" style="width: 100%; height: 200px; background-color:rgb(35, 239, 106);" />
-						</a>
-						<h3><a href="https://github.com/nithiya31/GAME">Tic Tac Toe Game</a></h3>
-						<p style="color: #000 ;   font-family: 'Montserrat', sans-serif;">A classic Tic Tac Toe game where the user competes against the system.</p>
-					</article>
-				</div>
-				<div class="col-4 col-6-medium col-12-small">
-					<article class="box style2">
-						<a href="https://github.com/nithiya31/spotify-playlist-terraform" class="image featured">
-							<img src="images/teeeeee.jpg" alt="Spotify Playlist Using Terraform" style="width: 100%; height: 170px; background-color: rgb(6, 36, 189);" />
-						</a>
-						<h3><a href="https://github.com/nithiya31/spotify-playlist-terraform">Spotify Playlist Using Terraform</a></h3>
-						<p style="color: #000; font-family: 'Montserrat', sans-serif;">An application that automates the creation of playlists on Spotify using Terraform.</p>
-					</article>
-				</div>
-				
-				
-				
-			</div>
-		</div>
-	</article>
-	
-	
-
-
-		<!-- Contact -->
-		<article id="contact" class="wrapper style4" style="background-color:white;">
-			<div class="container medium">
-				<header>
-					<h2 style="color: #000;">Contact Me </h2>
-				</header>
-				<div class="contact-form">
-					
-					<form onsubmit="openGmail(); return false;">
-						<label for="name">Name:</label>
-						<input  style ="width: 200px; margin-left: 36%; background-color: whitesmoke;" type="text" id="name" name="name" required>
-			
-						<label for="email">Email:</label>
-						<input style ="width: 200px; margin-left: 36%; background-color: whitesmoke;"  type="email" id="email" name="email" required>
-			
-						<label for="message">Message:</label>
-						<textarea style ="width: 200px; margin-left: 36% ; height: 100px; background-color: whitesmoke;"  id="message" name="message" rows="5" required></textarea>
-			
-						<input  style ="width: 200px;" type="submit" value="Send Message">
-					</form>
-				</div>
-			
-				<script>
-					function openGmail() {
-						const name = document.getElementById("name").value;
-						const email = document.getElementById("email").value;
-						const message = document.getElementById("message").value;
-			
-						// Prepare the subject and body
-						const subject = encodeURIComponent("Contact Form Submission from " + name);
-						const body = encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message);
-			
-						// Open Gmail with prefilled subject and body
-						window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=nithiyakrishna31@gmail.com&su=${subject}&body=${body}`);
-					}
-				</script>
-
-				</div>
-			</div>
-			
-        </div>
-		
-    </div>
-</article>
-</div>
-		
-		
-		
-		
-	<style>
-		
-
-
-/* Form styling */
-.contact-form {
-    width: 100%;
-}
-
-.contact-form label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-    color: #333;
-}
-
-.contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f4f9ff;
-}
-
-.contact-form input[type="submit"] {
-    width: 100%;
-    padding: 15px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.contact-form input[type="submit"]:hover {
-    background-color: #218838;
-}
-
-/* Header styling */
-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-h2 {
-    color: #333;
-    font-size: 24px;
-}
-</style>
-
-            
-       
-
-			</article>
-
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-		
-
-	</body>
+    </script>
+</body>
 </html>
